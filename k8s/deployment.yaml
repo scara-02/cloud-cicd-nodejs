@@ -1,0 +1,52 @@
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: cloud-cicd-nodejs
+  labels:
+    app: cloud-cicd-nodejs
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: cloud-cicd-nodejs
+
+  template:
+    metadata:
+      labels:
+        app: cloud-cicd-nodejs
+
+    spec:
+      containers:
+        - name: cloud-cicd-nodejs
+
+          image: cloudcicdnodejsjai.azurecr.io/cloud-cicd-nodejs:v1
+
+          ports:
+            - containerPort: 3000
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20

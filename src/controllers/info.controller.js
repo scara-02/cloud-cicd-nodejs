@@ -3,7 +3,7 @@ const getInfo = (req, res) => {
         success: true,
         application: "DevOps CI/CD Management API",
         version: "1.0.0",
-        description: "Node.js application deployed using Azure CI/CD",
+        description: "Node.js application updated through automated CI/CD pipeline",
         environment: process.env.NODE_ENV || "development"
     });
 };
