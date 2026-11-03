@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1793639426508" clover="3.2.0">
+  <project timestamp="1793639426508" name="All files">
+    <metrics statements="33" coveredstatements="31" conditionals="6" coveredconditionals="1" methods="5" coveredmethods="4" elements="44" coveredelements="36" complexity="0" loc="33" ncloc="33" packages="4" files="6" classes="6"/>
+    <package name="src">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="app.js" path="E:\sem 7\devops\CIA2\cloud-cicd-nodejs\src\app.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.controllers">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+      <file name="health.controller.js" path="E:\sem 7\devops\CIA2\cloud-cicd-nodejs\src\controllers\health.controller.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+      </file>
+      <file name="info.controller.js" path="E:\sem 7\devops\CIA2\cloud-cicd-nodejs\src\controllers\info.controller.js">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+      </file>
+      <file name="status.controller.js" path="E:\sem 7\devops\CIA2\cloud-cicd-nodejs\src\controllers\status.controller.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middleware">
+      <metrics statements="6" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="error.middleware.js" path="E:\sem 7\devops\CIA2\cloud-cicd-nodejs\src\middleware\error.middleware.js">
+        <metrics statements="6" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="17" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.routes">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="api.routes.js" path="E:\sem 7\devops\CIA2\cloud-cicd-nodejs\src\routes\api.routes.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
