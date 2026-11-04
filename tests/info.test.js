@@ -15,7 +15,7 @@ describe("Application Info API", () => {
         expect(response.body.application)
             .toBe("DevOps CI/CD Management API");
 
-        expect(response.body.version).toBe("1.0.0");
+        expect(response.body.version).toBe("1.0.1");
     });
 
 });
