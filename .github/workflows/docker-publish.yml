@@ -1,6 +1,4 @@
-
 name: Azure CI/CD Pipeline
-
 on:
   push:
     branches:
@@ -11,14 +9,16 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-push:
-    name: Build and Push to Azure ACR
+  build-and-deploy:
+    name: Build, Push and Deploy to AKS
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Step 2: Login to Azure using OIDC
       - name: Login to Azure using OIDC
         uses: azure/login@v2
         with:
@@ -26,9 +26,11 @@ jobs:
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
+      # Step 3: Login to Azure Container Registry
       - name: Login to Azure Container Registry
         run: az acr login --name cloudcicdnodejsjai
 
+      # Step 4: Build and Push Docker Image
       - name: Build and Push Docker Image
         env:
           ACR_LOGIN_SERVER: cloudcicdnodejsjai.azurecr.io
@@ -39,3 +41,24 @@ jobs:
           docker tag $ACR_LOGIN_SERVER/$IMAGE_NAME:$IMAGE_TAG $ACR_LOGIN_SERVER/$IMAGE_NAME:latest
           docker push $ACR_LOGIN_SERVER/$IMAGE_NAME:$IMAGE_TAG
           docker push $ACR_LOGIN_SERVER/$IMAGE_NAME:latest
+
+      # Step 5: Get AKS Credentials
+      - name: Get AKS Credentials
+        run: |
+          az aks get-credentials \
+            --resource-group cloud-cicd-rg \
+            --name cloud-cicd-aks \
+            --overwrite-existing
+
+      # Step 6: Deploy the New Image to AKS
+      - name: Deploy to AKS
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          kubectl set image deployment/cloud-cicd-nodejs \
+            cloud-cicd-nodejs=cloudcicdnodejsjai.azurecr.io/cloud-cicd-nodejs:$IMAGE_TAG \
+            -n cloud-cicd
+
+          kubectl rollout status deployment/cloud-cicd-nodejs \
+            -n cloud-cicd \
+            --timeout=180s
