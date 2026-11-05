@@ -8,7 +8,7 @@ metadata:
     app: cloud-cicd-nodejs
 
 spec:
-  replicas: 1
+  replicas: 3
 
   selector:
     matchLabels:
@@ -23,7 +23,7 @@ spec:
       containers:
         - name: cloud-cicd-nodejs
 
-          image: cloudcicdnodejsjai.azurecr.io/cloud-cicd-nodejs:v1
+          image: cloudcicdnodejsjai.azurecr.io/cloud-cicd-nodejs:latest
 
           ports:
             - containerPort: 3000
