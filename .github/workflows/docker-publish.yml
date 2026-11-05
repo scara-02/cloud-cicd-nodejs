@@ -12,7 +12,15 @@ jobs:
   build-and-deploy:
     name: Build, Push and Deploy to AKS
     runs-on: ubuntu-latest
-
+    env:
+      ACR_LOGIN_SERVER: cloudcicdnodejsjai.azurecr.io
+      IMAGE_NAME: cloud-cicd-nodejs
+      AKS_RESOURCE_GROUP: cloud-cicd-rg
+      AKS_CLUSTER_NAME: cloud-cicd-aks
+      K8S_NAMESPACE: cloud-cicd
+      DEPLOYMENT_NAME: cloud-cicd-nodejs
+      CONTAINER_NAME: cloud-cicd-nodejs
+      REPLICAS: 5
     steps:
       # Step 1: Checkout Repository
       - name: Checkout Repository
